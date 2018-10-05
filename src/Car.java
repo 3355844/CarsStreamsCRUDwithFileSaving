@@ -1,11 +1,11 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Car implements Serializable {
-    private static final long serialVersionUID = 4L;
-    //    private static int nextId = 0;
-    private long id = serialVersionUID;
+    private long id = UUID.randomUUID().getLeastSignificantBits()*-1;
     private Date yearCreation;
     private String brand;
     private String model;
@@ -24,6 +24,19 @@ public class Car implements Serializable {
                 ", transIsMechanic=" + transIsMechanic +
                 '}';
     }
+
+//    public static long LastCarId (){
+//        ArrayList<Car> cars = new ArrayList<>();
+//        cars = FileManager.readFromFile("fileCars.txt");
+//        long max = 0;
+//        for (Car car : cars) {
+//            if (car.getId() > max){
+//                max = car.getId();
+//            }
+//        }
+//
+//        return max;
+//    }
 
     @Override
     public boolean equals(Object o) {

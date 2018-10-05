@@ -15,7 +15,8 @@ public class FileManager {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            return cars; //if nothing in file...
+//            e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -24,6 +25,8 @@ public class FileManager {
     }
 
     public static void writeToFile(ArrayList<Car> cars, String filePath) {
+
+
 
         try {
             FileOutputStream fos = new FileOutputStream(new File(filePath));

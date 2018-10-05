@@ -16,6 +16,5 @@ public class Main {
         for (Car car : carsFromFile) {
             System.out.println(car.toString());
         }
-
     }
 }
