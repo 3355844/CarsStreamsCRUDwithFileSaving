@@ -3,31 +3,31 @@ import java.util.Date;
 
 public class CarDAO {
 
-    public void create(String filePath, Date yearCreation, String brand, String model, boolean transIsMechanic) {
+    public static void create(String filePath, Date yearCreation, String brand, String color, boolean transIsMechanic) {
         ArrayList<Car> cars = FileManager.readFromFile(filePath);
-        Car tmpCar = new Car(yearCreation, brand, model, transIsMechanic);
+        Car tmpCar = new Car(yearCreation, brand, color, transIsMechanic);
         cars.add(tmpCar);
         FileManager.writeToFile(cars, filePath);
     }
 
-    public void delete(Car car, String filePath) {
+    public static void delete(Car car, String filePath) {
         ArrayList<Car> cars = FileManager.readFromFile(filePath);
         cars.remove(car);
         FileManager.writeToFile(cars, filePath);
     }
 
-    public void update(int index, Car car, String filePath) {
+    public static void update(int index, Car car, String filePath) {
         ArrayList<Car> cars = FileManager.readFromFile(filePath);
         cars.set(index, car);
         FileManager.writeToFile(cars, filePath);
     }
 
-    public Car readByIndex(int index, String filePath) {
+    public static Car readByIndex(int index, String filePath) {
         ArrayList<Car> cars = FileManager.readFromFile(filePath);
         return cars.get(index);
     }
 
-    public ArrayList<Car> readAll(String filePath) {
+    public static ArrayList<Car> readAll(String filePath) {
         return FileManager.readFromFile(filePath);
     }
 }

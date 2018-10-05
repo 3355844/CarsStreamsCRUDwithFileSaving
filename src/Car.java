@@ -1,5 +1,4 @@
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -8,7 +7,7 @@ public class Car implements Serializable {
     private long id = UUID.randomUUID().getLeastSignificantBits()*-1;
     private Date yearCreation;
     private String brand;
-    private String model;
+    private String color;
     private boolean transIsMechanic;
 
     public Car() {
@@ -16,11 +15,10 @@ public class Car implements Serializable {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "id=" + id +
+        return "Car info " +
                 ", yearCreation=" + yearCreation +
                 ", brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
+                ", color='" + color + '\'' +
                 ", transIsMechanic=" + transIsMechanic +
                 '}';
     }
@@ -47,18 +45,18 @@ public class Car implements Serializable {
                 isTransIsMechanic() == car.isTransIsMechanic() &&
                 Objects.equals(getYearCreation(), car.getYearCreation()) &&
                 Objects.equals(getBrand(), car.getBrand()) &&
-                Objects.equals(getModel(), car.getModel());
+                Objects.equals(getColor(), car.getColor());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getYearCreation(), getBrand(), getModel(), isTransIsMechanic());
+        return Objects.hash(getId(), getYearCreation(), getBrand(), getColor(), isTransIsMechanic());
     }
 
-    public Car(Date yearCreation, String brand, String model, boolean transIsMechanic) {
+    public Car(Date yearCreation, String brand, String color, boolean transIsMechanic) {
         this.yearCreation = yearCreation;
         this.brand = brand;
-        this.model = model;
+        this.color = color;
         this.transIsMechanic = transIsMechanic;
     }
 
@@ -70,8 +68,8 @@ public class Car implements Serializable {
         this.brand = brand;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public void setTransIsMechanic(boolean transIsMechanic) {
@@ -90,8 +88,8 @@ public class Car implements Serializable {
         return brand;
     }
 
-    public String getModel() {
-        return model;
+    public String getColor() {
+        return color;
     }
 
     public boolean isTransIsMechanic() {
