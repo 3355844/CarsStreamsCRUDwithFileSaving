@@ -10,6 +10,24 @@ public class CarDAO {
         FileManager.writeToFile(cars, filePath);
     }
 
+    public void delete(Car car, String filePath) {
+        ArrayList<Car> cars = FileManager.readFromFile(filePath);
+        cars.remove(car);
+        FileManager.writeToFile(cars, filePath);
+    }
 
+    public void update(int index, Car car, String filePath) {
+        ArrayList<Car> cars = FileManager.readFromFile(filePath);
+        cars.set(index, car);
+        FileManager.writeToFile(cars, filePath);
+    }
 
+    public Car readByIndex(int index, String filePath) {
+        ArrayList<Car> cars = FileManager.readFromFile(filePath);
+        return cars.get(index);
+    }
+
+    public ArrayList<Car> readAll(String filePath) {
+        return FileManager.readFromFile(filePath);
+    }
 }
