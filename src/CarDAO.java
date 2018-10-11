@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 public class CarDAO {
@@ -25,6 +26,12 @@ public class CarDAO {
     public static Car readByIndex(int index, String filePath) {
         ArrayList<Car> cars = FileManager.readFromFile(filePath);
         return cars.get(index);
+    }
+
+    public static void sortDate(String filePath){
+        ArrayList<Car> cars = FileManager.readFromFile(filePath);
+        Collections.sort(cars, new CarSorterByDate());
+        FileManager.writeToFile(cars,filePath);
     }
 
     public static ArrayList<Car> readAll(String filePath) {

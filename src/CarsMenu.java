@@ -1,5 +1,3 @@
-import javafx.scene.input.DataFormat;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,7 +19,6 @@ public class CarsMenu {
         if (command.equalsIgnoreCase("c")) {
             createCar(filePath);
         } else if (command.equalsIgnoreCase("r")) {
-//            CarDAO.readAll(filePath);
             CarsMenu.printToConsole(filePath);
         } else if (command.equalsIgnoreCase("u")) {
             updateCar(filePath);
@@ -29,7 +26,9 @@ public class CarsMenu {
             System.out.println("Enter index for delete Car:");
             index = Integer.parseInt(readConsoleValue());
             CarDAO.delete(CarDAO.readByIndex(index, filePath),filePath);
-//        } else if (command.equalsIgnoreCase("s")) {
+        } else if (command.equalsIgnoreCase("s")) {
+            System.out.println("Sort by Date");
+            CarDAO.sortDate(filePath);
         } else if (command.equalsIgnoreCase("exit")) {
             System.out.println("You exit from program: ");
             System.exit(0);
@@ -86,7 +85,7 @@ public class CarsMenu {
                 "r - read \n" +
                 "u - update \n" +
                 "d - delete \n" +
-                "s - sort by id \n" +
+                "s - sortDate by id \n" +
                 "exit - for finish program");
     }
 
