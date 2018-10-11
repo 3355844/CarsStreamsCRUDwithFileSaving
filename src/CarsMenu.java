@@ -14,7 +14,6 @@ public class CarsMenu {
    private static boolean transIsMechanic;
    private static String strDate = null;
    private static int index ;
-   public static boolean theEndProgram = true;
 
     public static void routeCar(String filePath) {
         String command = readConsoleValue();
@@ -33,7 +32,7 @@ public class CarsMenu {
 //        } else if (command.equalsIgnoreCase("s")) {
         } else if (command.equalsIgnoreCase("exit")) {
             System.out.println("You exit from program: ");
-            theEndProgram = false;
+            System.exit(0);
         } else {
             System.out.println("Incorrect command try again : ");
         }

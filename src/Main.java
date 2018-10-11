@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        while (CarsMenu.theEndProgram){
+        while (true){
          CarsMenu.mainMenu();
          CarsMenu.routeCar(FILE_PATH);
         }
